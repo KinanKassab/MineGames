@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ButtonCustom } from "@/components/ui/button-custom";
 
@@ -116,11 +115,9 @@ const Products: React.FC = () => {
           </ButtonCustom>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {games.map((game, index) => (
-            <GameCard key={index} {...game} />
-          ))}
-        </div>
+        {games.map((game, index) => (
+          <GameCard key={index} {...game} />
+        ))}
         
         <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 reveal">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
