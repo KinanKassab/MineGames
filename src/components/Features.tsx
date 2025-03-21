@@ -1,5 +1,6 @@
 
 import React from "react";
+import { ButtonCustom } from "@/components/ui/button-custom";
 
 interface FeatureProps {
   icon: React.ReactNode;
