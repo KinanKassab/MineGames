@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ButtonCustom } from "@/components/ui/button-custom";
@@ -291,26 +290,19 @@ const Features: React.FC = () => {
         <div className="mt-12 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-2xl p-8 reveal">
           <div className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-8 items-center`}>
             <div>
-              <h3 className="text-2xl font-bold mb-4">Ready to Play?</h3>
+              <h3 className="text-2xl font-bold mb-4">Mobile App Coming Soon!</h3>
               <p className="text-muted-foreground mb-6">
-                Download our app now and get instant access to all these amazing games. New titles added weekly!
+                We're working hard to bring these amazing games to your mobile device. 
+                Stay tuned for our upcoming app release with exciting features and exclusive content!
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div>
                 <ButtonCustom variant="premium" size="lg">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                    <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"></path>
-                    <path d="M10 2c1 .5 2 2 2 5"></path>
+                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1 3 .6.7 1 1.3 1 2.5V16a3 3 0 0 0 6 0v-2Z"></path>
+                    <path d="M9 18h6"></path>
+                    <path d="M10 22h4"></path>
                   </svg>
-                  App Store
-                </ButtonCustom>
-                <ButtonCustom variant="outline" size="lg">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                    <path d="m3 6 8 4 8-4"></path>
-                    <path d="m3 18 8-4 8 4"></path>
-                    <path d="M3 6v12"></path>
-                    <path d="M19 6v12"></path>
-                  </svg>
-                  Google Play
+                  Get Notified
                 </ButtonCustom>
               </div>
             </div>
@@ -332,3 +324,4 @@ const Features: React.FC = () => {
 };
 
 export default Features;
+
