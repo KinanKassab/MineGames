@@ -117,32 +117,6 @@ const Products: React.FC = () => {
       {games.map((game, index) => (
         <GameCard key={index} {...game} />
       ))}
-      
-      <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 reveal">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">
-              Ready to experience the next level of gaming?
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Join our premium membership and get access to exclusive games, early releases, and special discounts.
-            </p>
-            <ButtonCustom variant="premium">
-              Upgrade to Premium
-            </ButtonCustom>
-          </div>
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full blur-xl opacity-70"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
-                alt="Premium Gaming" 
-                className="relative rounded-xl shadow-xl max-w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
