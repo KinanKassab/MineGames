@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import { ButtonCustom } from "@/components/ui/button-custom";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import ThemeLanguageToggle from "@/components/ThemeLanguageToggle";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, isRTL } = useLanguage();
 
   // Handle scroll event to change header style
   useEffect(() => {
@@ -26,7 +29,7 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm py-4"
+          ? "bg-background/80 backdrop-blur-md shadow-sm py-4 dark:bg-background/70"
           : "bg-transparent py-6"
       }`}
     >
@@ -38,48 +41,52 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className={`hidden md:flex items-center space-x-1 ${isRTL ? "space-x-reverse" : ""}`}>
             <Link to="/" className="nav-link nav-link-active">
-              Home
+              {t("nav.home")}
             </Link>
             <Link to="/games" className="nav-link">
-              Games
+              {t("nav.games")}
             </Link>
             <Link to="/about" className="nav-link">
-              About
+              {t("nav.about")}
             </Link>
             <Link to="/blog" className="nav-link">
-              Blog
+              {t("nav.blog")}
             </Link>
             <Link to="/contact" className="nav-link">
-              Contact
+              {t("nav.contact")}
             </Link>
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Desktop CTA and Theme/Language Toggle */}
+          <div className={`hidden md:flex items-center ${isRTL ? "space-x-reverse" : ""} space-x-4`}>
+            <ThemeLanguageToggle />
             <ButtonCustom variant="outline" size="sm">
-              Sign In
+              {t("button.signin")}
             </ButtonCustom>
             <ButtonCustom variant="premium" size="sm">
-              Get Started
+              {t("button.getStarted")}
             </ButtonCustom>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeLanguageToggle />
+            <button
+              className="text-foreground"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute w-full bg-white/95 backdrop-blur-lg shadow-md transition-all duration-300 ease-in-out overflow-hidden ${
+        className={`md:hidden absolute w-full bg-background/95 dark:bg-background/90 backdrop-blur-lg shadow-md transition-all duration-300 ease-in-out overflow-hidden ${
           mobileMenuOpen ? "max-h-screen py-4" : "max-h-0"
         }`}
       >
@@ -87,46 +94,46 @@ const Header: React.FC = () => {
           <nav className="flex flex-col space-y-4 py-4">
             <Link
               to="/"
-              className="text-lg py-2 border-b border-gray-100"
+              className="text-lg py-2 border-b border-border"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Home
+              {t("nav.home")}
             </Link>
             <Link
               to="/games"
-              className="text-lg py-2 border-b border-gray-100"
+              className="text-lg py-2 border-b border-border"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Games
+              {t("nav.games")}
             </Link>
             <Link
               to="/about"
-              className="text-lg py-2 border-b border-gray-100"
+              className="text-lg py-2 border-b border-border"
               onClick={() => setMobileMenuOpen(false)}
             >
-              About
+              {t("nav.about")}
             </Link>
             <Link
               to="/blog"
-              className="text-lg py-2 border-b border-gray-100"
+              className="text-lg py-2 border-b border-border"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Blog
+              {t("nav.blog")}
             </Link>
             <Link
               to="/contact"
               className="text-lg py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Contact
+              {t("nav.contact")}
             </Link>
           </nav>
           <div className="flex flex-col space-y-3 mt-6 mb-4">
             <ButtonCustom variant="outline" className="w-full">
-              Sign In
+              {t("button.signin")}
             </ButtonCustom>
             <ButtonCustom variant="premium" className="w-full">
-              Get Started
+              {t("button.getStarted")}
             </ButtonCustom>
           </div>
         </div>
