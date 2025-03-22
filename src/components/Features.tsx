@@ -1,5 +1,7 @@
+
 import React from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { ButtonCustom } from "@/components/ui/button-custom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,24 +26,25 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => {
 
 const Features: React.FC = () => {
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
   
   return (
     <section className="section py-16 bg-background" id="features">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12 reveal">
-          <h2 className="text-3xl font-bold mb-4">Gaming Categories for Everyone</h2>
+          <h2 className="text-3xl font-bold mb-4">{t("features.title")}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover a diverse selection of games designed to challenge, entertain, and bring out your competitive spirit
+            {t("features.subtitle")}
           </p>
         </div>
 
         <Tabs defaultValue="all" className="w-full mb-8">
           <div className="flex justify-center mb-8">
             <TabsList className="grid grid-cols-4 w-full max-w-md">
-              <TabsTrigger value="all">All Games</TabsTrigger>
-              <TabsTrigger value="brain">Brain Teasers</TabsTrigger>
-              <TabsTrigger value="action">Action</TabsTrigger>
-              <TabsTrigger value="competitive">Competitive</TabsTrigger>
+              <TabsTrigger value="all">{t("features.allGames")}</TabsTrigger>
+              <TabsTrigger value="brain">{t("features.brainTeasers")}</TabsTrigger>
+              <TabsTrigger value="action">{t("features.action")}</TabsTrigger>
+              <TabsTrigger value="competitive">{t("features.competitive")}</TabsTrigger>
             </TabsList>
           </div>
 
@@ -57,32 +60,32 @@ const Features: React.FC = () => {
                       <path d="M8 16a4 4 0 1 0 8 0 4 4 0 1 0-8 0"></path>
                     </svg>
                   </div>
-                  <CardTitle>Brain Teasers</CardTitle>
-                  <CardDescription className="text-white/80">Challenge your mind</CardDescription>
+                  <CardTitle>{t("features.brainCategory")}</CardTitle>
+                  <CardDescription className="text-white/80">{t("features.brainDesc")}</CardDescription>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <p className="mb-4">Puzzle games that stretch your mental abilities and test your problem-solving skills.</p>
+                  <p className="mb-4">{t("features.quickPuzzlesDesc")}</p>
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Logic Puzzles</span>
+                      <span>{t("features.logicPuzzles")}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Memory Games</span>
+                      <span>{t("features.memoryGames")}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Word Challenges</span>
+                      <span>{t("features.wordChallenges")}</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -97,32 +100,32 @@ const Features: React.FC = () => {
                       <circle cx="17" cy="7" r="5"></circle>
                     </svg>
                   </div>
-                  <CardTitle>Fast-Paced Action</CardTitle>
-                  <CardDescription className="text-white/80">For adrenaline lovers</CardDescription>
+                  <CardTitle>{t("features.actionCategory")}</CardTitle>
+                  <CardDescription className="text-white/80">{t("features.actionDesc")}</CardDescription>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <p className="mb-4">High-octane games that test your reflexes and keep you on the edge of your seat.</p>
+                  <p className="mb-4">{t("features.racingGamesDesc")}</p>
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Racing Games</span>
+                      <span>{t("features.racingGames")}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Arcade Shooters</span>
+                      <span>{t("features.arcadeShooters")}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Platformers</span>
+                      <span>{t("features.platformers")}</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -137,32 +140,32 @@ const Features: React.FC = () => {
                       <path d="m9 12 2 2 4-4"></path>
                     </svg>
                   </div>
-                  <CardTitle>Competitive Battles</CardTitle>
-                  <CardDescription className="text-white/80">Test your skills</CardDescription>
+                  <CardTitle>{t("features.competitiveCategory")}</CardTitle>
+                  <CardDescription className="text-white/80">{t("features.competitiveDesc")}</CardDescription>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <p className="mb-4">Go head-to-head with players around the world in thrilling competitive gameplay.</p>
+                  <p className="mb-4">{t("features.teamBattlesDesc")}</p>
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Battle Royale</span>
+                      <span>{t("features.battleRoyale")}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Strategy Games</span>
+                      <span>{t("features.strategyGames")}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
                         <polyline points="9 11 12 14 22 4"></polyline>
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                       </svg>
-                      <span>Sports Games</span>
+                      <span>{t("features.sportsGames")}</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -179,8 +182,8 @@ const Features: React.FC = () => {
                     <path d="M12 8v4l3 3"></path>
                   </svg>
                 }
-                title="Quick Puzzles"
-                description="Short brain teasers that can be solved in minutes, perfect for a quick mental workout."
+                title={t("features.quickPuzzles")}
+                description={t("features.quickPuzzlesDesc")}
               />
               <Feature
                 icon={
@@ -190,8 +193,8 @@ const Features: React.FC = () => {
                     <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
                   </svg>
                 }
-                title="Coding Challenges"
-                description="Learn programming concepts through fun, interactive puzzles designed for all skill levels."
+                title={t("features.codingChallenges")}
+                description={t("features.codingChallengesDesc")}
               />
               <Feature
                 icon={
@@ -201,8 +204,8 @@ const Features: React.FC = () => {
                     <path d="M8 16a4 4 0 1 0 8 0 4 4 0 1 0-8 0"></path>
                   </svg>
                 }
-                title="Memory Games"
-                description="Enhance your recall abilities with games that challenge and improve your memory over time."
+                title={t("features.memoryGames")}
+                description={t("features.memoryGamesDesc")}
               />
             </div>
           </TabsContent>
@@ -216,8 +219,8 @@ const Features: React.FC = () => {
                     <circle cx="17" cy="7" r="5"></circle>
                   </svg>
                 }
-                title="Racing Games"
-                description="High-speed racing games that test your reflexes and timing as you zoom through challenging tracks."
+                title={t("features.racingGames")}
+                description={t("features.racingGamesDesc")}
               />
               <Feature
                 icon={
@@ -225,8 +228,8 @@ const Features: React.FC = () => {
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
                   </svg>
                 }
-                title="Arcade Shooters"
-                description="Classic shooter games reimagined with modern graphics and intuitive touch controls."
+                title={t("features.arcadeShooters")}
+                description={t("features.arcadeShootersDesc")}
               />
               <Feature
                 icon={
@@ -239,8 +242,8 @@ const Features: React.FC = () => {
                     <path d="M12 22.08V12"></path>
                   </svg>
                 }
-                title="3D Adventures"
-                description="Immersive 3D action games with stunning visuals and engaging storylines."
+                title={t("features.3dAdventures")}
+                description={t("features.3dAdventuresDesc")}
               />
             </div>
           </TabsContent>
@@ -258,8 +261,8 @@ const Features: React.FC = () => {
                     <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
                   </svg>
                 }
-                title="Tournament Games"
-                description="Compete in regular tournaments with players of similar skill levels for exciting prizes."
+                title={t("features.tournamentGames")}
+                description={t("features.tournamentGamesDesc")}
               />
               <Feature
                 icon={
@@ -268,8 +271,8 @@ const Features: React.FC = () => {
                     <path d="m9 12 2 2 4-4"></path>
                   </svg>
                 }
-                title="Team Battles"
-                description="Form teams with friends and battle other squads in strategic, collaborative gameplay."
+                title={t("features.teamBattles")}
+                description={t("features.teamBattlesDesc")}
               />
               <Feature
                 icon={
@@ -280,8 +283,8 @@ const Features: React.FC = () => {
                     <rect width="12" height="12" x="6" y="10"></rect>
                   </svg>
                 }
-                title="Ranking Ladders"
-                description="Climb the global rankings as you defeat opponents and improve your skills in competitive play."
+                title={t("features.rankingLadders")}
+                description={t("features.rankingLaddersDesc")}
               />
             </div>
           </TabsContent>
@@ -290,10 +293,9 @@ const Features: React.FC = () => {
         <div className="mt-12 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-2xl p-8 reveal">
           <div className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-8 items-center`}>
             <div>
-              <h3 className="text-2xl font-bold mb-4">Mobile App Coming Soon!</h3>
+              <h3 className="text-2xl font-bold mb-4">{t("features.mobileApp")}</h3>
               <p className="text-muted-foreground mb-6">
-                We're working hard to bring these amazing games to your mobile device. 
-                Stay tuned for our upcoming app release with exciting features and exclusive content!
+                {t("features.mobileAppDesc")}
               </p>
               <div>
                 <ButtonCustom variant="premium" size="lg">
@@ -302,7 +304,7 @@ const Features: React.FC = () => {
                     <path d="M9 18h6"></path>
                     <path d="M10 22h4"></path>
                   </svg>
-                  Get Notified
+                  {t("features.getNotified")}
                 </ButtonCustom>
               </div>
             </div>
@@ -324,4 +326,3 @@ const Features: React.FC = () => {
 };
 
 export default Features;
-

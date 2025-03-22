@@ -1,14 +1,12 @@
 
 import React, { useEffect } from "react";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Newsletter from "@/components/Newsletter";
+import Features from "@/components/Features";
 import Footer from "@/components/Footer";
 import { initAnimations } from "@/utils/animations";
 import { useLanguage } from "@/contexts/LanguageContext";
-import DownloadInstructions from "@/components/DownloadInstructions";
 
-const Index: React.FC = () => {
+const Games: React.FC = () => {
   const { isRTL } = useLanguage();
   
   useEffect(() => {
@@ -20,13 +18,11 @@ const Index: React.FC = () => {
     <div className={`min-h-screen flex flex-col ${isRTL ? 'rtl' : ''}`}>
       <Header />
       <main>
-        <Hero />
-        <DownloadInstructions />
-        <Newsletter />
+        <Features />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Games;
